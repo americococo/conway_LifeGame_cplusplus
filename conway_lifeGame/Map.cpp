@@ -57,13 +57,13 @@ void Map::Update()
 				}
 			}
 
-			
-
-			if (neighbors == 2)
-				_nextList[y*_x+x] = _MapList[y*_x + x];
-
-			if (_MapList[y*_x + x] == true && neighbors == 3)
+			//change rule
+			if (_MapList[y*_x + x] == false && neighbors == 3)
 				_nextList[y*_x + x] = true;
+
+			else if (_MapList[y*_x + x] == true && neighbors == 2 || neighbors == 3)
+				_nextList[y*_x + x] = true;
+
 			else
 				_nextList[y*_x + x] = false;
 		}
